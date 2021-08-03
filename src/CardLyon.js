@@ -1,26 +1,36 @@
-import  {Image} from 'react';
-import { Card } from 'react-bootstrap';
-import logo from './logo192.png'
+import  react from 'react';
+import "./index.css";
+import "./App.css";
+
 
 
 
 
 function CardLyon(props) {
-console.log(props)
+   
+    console.log(props);
        return (
+         
      
-            < div className="d-flex justify-content-center" >
-            <Image src={logo} />
-                <Card className=" UserCard bg-dark text-white" style={{ width: '18rem' }}>
-                  
-                    <Card.Body>
-                        <Card.Title className="text-center"> Ville:{props.name}</Card.Title>
-                        <Card.Text className="text-center"> Vent:{props.wind}km/h </Card.Text>
-                        <Card.Text className="text-center"> Température:{props.temp }°C</Card.Text>
-                        <Card.Text className="text-center"> meteo:{props.weather }</Card.Text>
-                    </Card.Body>
-                </Card >
-            </div >
+        <div class="App">
+        <div class="row">
+            <div class="col s12 m6 push-m3">
+                <div class="weather card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">{props.name ? props.name:''}</span>
+                         <p><img src={"http://openweathermap.org/img/wn/"+props.icon ? props.icon:''+"@2x.png"}/></p>
+                        <span class="temperature">{props.temp ? props.temp:''}°</span>
+                        <span class="weather">{props.weather ? props.weather:''}</span>
+                        <span class="day">{props.day}</span>
+                        <div class="wind">Vent {props.wind ? props.wind:''}km/h ({props.deg})</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+           
+              
         )
  
 }
