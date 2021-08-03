@@ -1,19 +1,33 @@
-import React, { } from 'react';
-import './index.css';
-import './App.css';
 
 
-function Days() {
-    return(
-<div class="card-action">
-<a href="#" style="font-weight: bold;">Thursday</a>
-<a href="#">Friday</a>
-<a href="#">Saturday</a>
-<a href="#">Sunday</a>
-<a href="#">Monday</a>
-</div>
-)
+function Days () {
 
+    function handleClick(e) {
+        let links = document.querySelectorAll('a');
+        links.forEach(element => {
+            element.style.fontWeight = 'normal'
+        });
+        e.target.style.fontWeight = "bold"
+        e.preventDefault();
     }
 
+    return (
+        <div class="App">
+            <div class="row">
+                <div class="col s12 m6 push-m3">
+                    <div class="weather card blue-grey darken-1">
+                        <div class="card-action">
+                            <a onClick={handleClick} href="#">Thursday</a>
+                            <a onClick={handleClick} href="#">Friday</a>
+                            <a onClick={handleClick} href="#">Saturday</a>
+                            <a onClick={handleClick} href="#">Sunday</a>
+                            <a onClick={handleClick} href="#">Monday</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+
+};
     export default Days;

@@ -2,8 +2,9 @@ import react from "react";
 import "./index.css";
 import "./App.css";
 
+
 function CardLyon(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div class="App">
       <div class="row">
@@ -23,7 +24,7 @@ function CardLyon(props) {
               <span class="weather">{props.weather ? props.weather : ""}</span>
               <span class="day">{props.day}</span>
               <div class="wind">
-                Vent {props.wind ? props.wind : ""}km/h ({props.deg})
+                Vent {props.wind ? props.wind : ""}km/h ({props.deg}°)
               </div>
             </div>
           </div>

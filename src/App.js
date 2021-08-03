@@ -1,7 +1,7 @@
 import CardLyon from "./CardLyon";
-
-import Header from "./Header";
 import Days from "./Days";
+import Header from "./Header";
+
 import { useState, useEffect } from "react";
 
 import "./index.css";
@@ -28,19 +28,19 @@ function App() {
     setDay(data.list[0].dt);
   };
 
-  useEffect(async() => {
+  useEffect(async () => {
     if (on) {
       await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=Lyon,FR&units=metric&APPID=cb0a930e7a31a1900ac0ff06d2ddaf24&lang=fr`
       )
         .then((res) => res.json())
-        .then( async (data) => {
+        .then(async (data) => {
           setData(data);
           console.log(data);
         });
     }
 
-   await setOn(false);
+    await setOn(false);
   }, []);
 
   return (
@@ -54,7 +54,11 @@ function App() {
         weather={weather}
         icon={icon}
       />
-       <Days />
+
+      <div className="days">
+              
+    <Days/>
+      </div>
     </div>
   );
 }
