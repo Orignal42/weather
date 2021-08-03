@@ -21,27 +21,26 @@ function App() {
   const setData = (data) => {
     setName(data.city.name);
     setTemp(data.list[0].main.temp);
-    setWeather(data.list[0].weather.main);
-    setIcon(data.list[0].weather.icon);
+    setWeather(data.list[0].weather[0].main);
+    setIcon(data.list[0].weather[0].icon);
     setWind(data.list[0].wind.speed);
     setDeg(data.list[0].wind.deg);
     setDay(data.list[0].dt);
   };
 
-  useEffect(async () => {
+  useEffect(async() => {
     if (on) {
       await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=Lyon,FR&units=metric&APPID=cb0a930e7a31a1900ac0ff06d2ddaf24&lang=fr`
       )
         .then((res) => res.json())
-        .then( (data) => {
-           setData(data);
-           console.log(data)
+        .then( async (data) => {
+          setData(data);
+          console.log(data);
         });
-    
     }
- 
-     setOn(false);
+
+   await setOn(false);
   }, []);
 
   return (
@@ -53,10 +52,9 @@ function App() {
         wind={wind}
         deg={deg}
         weather={weather}
-        day={day}
         icon={icon}
       />
-      {/* <Days /> */}
+       <Days />
     </div>
   );
 }
